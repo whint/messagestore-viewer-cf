@@ -1,6 +1,6 @@
 {
-  "name": "messageStoreViewer",
-  "version": "0.0.1",
+  "name": "MessageStoreViewer",
+  "version": "1.0.0",
   "engines": {
     "node": "12.X"
   },

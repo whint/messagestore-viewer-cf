@@ -24,7 +24,8 @@ server:
     - name: ui5-middleware-cfdestination
       afterMiddleware: compression
       configuration:
-        debug: true
+        authenticationMethod: none
+        # debug: true
         port: 1091
         xsappJson: approuter/xs-app.json
         destinations: []

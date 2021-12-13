@@ -1,0 +1,71 @@
+<mvc:View controllerName="de.whint.cpi.messageStoreViewer.controller.Main" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:fo="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+    <App id="app">
+        <pages>
+            <Page title="{i18n>appTitle}">
+                <customHeader>
+                    <f:ShellBar title="{i18n>appTitle}" secondTitle="{i18n>subTitle}" homeIcon="img/logo.jpg" />
+                </customHeader>
+                <content>
+                    <VBox class="sapUiMediumMargin">
+                        <fo:SimpleForm title="{i18n>search}" editable="true">
+                            <fo:content>
+                                <Select forceSelection="false" selectedKey="{/SelectedDestination}" items="{path: 'manifest>/destinations'}" change="onChangeDestination">
+                                    <core:Item key="{manifest>id}" text="{manifest>name}" />
+                                </Select>
+                                <Input value="{/FlowName}" placeholder="{i18n>flowName}" submit="onFilterMessages" />
+                                <Input value="{/MessageId}" placeholder="{i18n>messageGuid}" submit="onFilterMessages" />
+                                <DateRangeSelection showCurrentDateButton="true" showFooter="true" change="onFilterMessages" dateValue="{/DateFrom}" secondDateValue="{/DateTo}" />
+                            </fo:content>
+                        </fo:SimpleForm>
+                        <Panel headerText="{i18n>recent}">
+                            <Table id="messages" growing="true" growingScrollToLoad="true" growingThreshold="10" sticky="ColumnHeaders" itemPress="onSelectMessage" items="{
+                            path: '/Messages',
+                            sorter: {path:'LogStart', descending: true}
+                        }">
+                                <columns>
+                                    <Column>
+                                        <Text text="{i18n>date}" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>flowName}" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>messageGuid}" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>status}" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Active">
+                                        <cells>
+                                            <Label text="{path: 'LogStart', formatter: '.formatter.timestamp'}" />
+                                        </cells>
+                                        <cells>
+                                            <Label text="{IntegrationArtifact/Name}" />
+                                        </cells>
+                                        <cells>
+                                            <Label text="{MessageGuid}" />
+                                        </cells>
+                                        <cells>
+                                            <Label text="{Status}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </Panel>
+                    </VBox>
+                </content>
+                <footer>
+                    <OverflowToolbar design="Info">
+                        <Label text="Made by whitepaper.id GmbH" />
+                        <Label text="/" />
+                        <Link text="Whitepaper InterfaceDesign" href="https://www.whitepaper-id.com" class="whint2" />
+                        <Label text="/" />
+                        <Link text="SAP Integration Excellence" href="https://www.integration-excellence.com" class="whint1" />
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

@@ -1,8 +1,8 @@
 {
-  "name": "messageStoreViewer",
-  "version": "0.0.1",
+  "name": "de.whint.cpi.messagestoreviewer",
+  "version": "1.0.0",
   "scripts": {
-    "start": "ui5 serve --config=uimodule/ui5.yaml  --open index.html",
+    "start": "ui5 serve --config=uimodule/ui5.yaml",
     "build:ui": "run-s  build:uimodule",
     "test": "run-s lint karma",
     "karma-ci": "karma start karma-ci.conf.js",
@@ -10,7 +10,7 @@
     "karma": "run-s clearCoverage karma-ci",
     "lint": "eslint .",
     "build:mta": "mbt build",
-    "deploy:cf": "cross-var cf deploy mta_archives/messageStoreViewer_$npm_package_version.mtar",
+    "deploy:cf": "cross-var cf deploy mta_archives/messageStoreViewer_$npm_package_version.mtar --delete-services",
     "deploy": "run-s build:mta deploy:cf",
     "serve:uimodule": "ui5 serve --config=uimodule/ui5.yaml",
     "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --dest approuter/uimodule/webapp"
@@ -38,5 +38,8 @@
       "ui5-middleware-cfdestination",
       "ui5-task-zipper"
     ]
+  },
+  "dependencies": {
+    "@sap/xssec": "^3.2.11"
   }
 }

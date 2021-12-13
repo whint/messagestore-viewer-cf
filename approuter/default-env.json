@@ -1,0 +1,108 @@
+{
+  "VCAP_SERVICES": {
+    "connectivity": [
+      {
+        "binding_guid": "f73f757d-6e0e-4a5f-b479-d217c28c801c",
+        "binding_name": null,
+        "credentials": {
+          "clientid": "sb-clone4fff8f8ba59f40f8bf1dc80347d7f0ea!b121838|connectivity!b17",
+          "clientsecret": "f73f757d-6e0e-4a5f-b479-d217c28c801c$yaa7kFEoc7iJU3Nq93otwlTA9mQP7JzsEaT_ldfpEqE=",
+          "identityzone": "whintaws-dev",
+          "onpremise_proxy_host": "connectivityproxy.internal.cf.eu10.hana.ondemand.com",
+          "onpremise_proxy_http_port": "20003",
+          "onpremise_proxy_ldap_port": "20001",
+          "onpremise_proxy_port": "20003",
+          "onpremise_proxy_rfc_port": "20001",
+          "onpremise_socks5_proxy_port": "20004",
+          "tenantid": "147c462e-8c8e-4b7d-9b83-794eda7d203a",
+          "tenantmode": "dedicated",
+          "token_service_domain": "authentication.eu10.hana.ondemand.com",
+          "token_service_url": "https://whintaws-dev.authentication.eu10.hana.ondemand.com",
+          "uaadomain": "authentication.eu10.hana.ondemand.com",
+          "url": "https://whintaws-dev.authentication.eu10.hana.ondemand.com",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAushMA6gtvRI2AuJqn8nrkUcr09mCOwfmCAZf6Y+naO04gmuHDDm7Bg78aEPvdw/ORwT470fe9eqL4F0RSA812iOm/Up43YZb0OvzrEkED8ON4ArIUVSaDnHuTq5igLEMIk5qxOpQqh6VzKJPYOayhjzpME/w8RNoi6i8ajTB1qUqzD5u/gl0ypi+HGTIvj2rHuc1HS3N2Luo5obC1PP5gkf+kaFii4/wGoX02q9I0ShUQ367EPr+X4xLQLH8P8HeTcwJ2esdrgP65/3H90bzP04nz3987necRjK+mSdYUAj/21SnZPDSOMw/4Kbj9YXDtY4ASRzMob+suiDKhs6GEwIDAQAB-----END PUBLIC KEY-----",
+          "xsappname": "clone4fff8f8ba59f40f8bf1dc80347d7f0ea!b121838|connectivity!b17"
+        },
+        "instance_guid": "4fff8f8b-a59f-40f8-bf1d-c80347d7f0ea",
+        "instance_name": "MessageStoreViewer_Conn",
+        "label": "connectivity",
+        "name": "MessageStoreViewer_Conn",
+        "plan": "lite",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [
+          "connectivity",
+          "conn",
+          "connsvc"
+        ],
+        "volume_mounts": []
+      }
+    ],
+    "destination": [
+      {
+        "binding_guid": "e3fc5a61-7bb4-4883-a79a-f1f729dbc874",
+        "binding_name": null,
+        "credentials": {
+          "clientid": "sb-clonefc5b4a8f9ed54a4da47c939d9d85fe28!b121838|destination-xsappname!b404",
+          "clientsecret": "e3fc5a61-7bb4-4883-a79a-f1f729dbc874$0_GT3-f9e61vHPMwhNrSF13CegoLtf3CoBn6Vmt40Ug=",
+          "identityzone": "whintaws-dev",
+          "instanceid": "fc5b4a8f-9ed5-4a4d-a47c-939d9d85fe28",
+          "tenantid": "147c462e-8c8e-4b7d-9b83-794eda7d203a",
+          "tenantmode": "dedicated",
+          "uaadomain": "authentication.eu10.hana.ondemand.com",
+          "uri": "https://destination-configuration.cfapps.eu10.hana.ondemand.com",
+          "url": "https://whintaws-dev.authentication.eu10.hana.ondemand.com",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAushMA6gtvRI2AuJqn8nrkUcr09mCOwfmCAZf6Y+naO04gmuHDDm7Bg78aEPvdw/ORwT470fe9eqL4F0RSA812iOm/Up43YZb0OvzrEkED8ON4ArIUVSaDnHuTq5igLEMIk5qxOpQqh6VzKJPYOayhjzpME/w8RNoi6i8ajTB1qUqzD5u/gl0ypi+HGTIvj2rHuc1HS3N2Luo5obC1PP5gkf+kaFii4/wGoX02q9I0ShUQ367EPr+X4xLQLH8P8HeTcwJ2esdrgP65/3H90bzP04nz3987necRjK+mSdYUAj/21SnZPDSOMw/4Kbj9YXDtY4ASRzMob+suiDKhs6GEwIDAQAB-----END PUBLIC KEY-----",
+          "xsappname": "clonefc5b4a8f9ed54a4da47c939d9d85fe28!b121838|destination-xsappname!b404"
+        },
+        "instance_guid": "fc5b4a8f-9ed5-4a4d-a47c-939d9d85fe28",
+        "instance_name": "MessageStoreViewer_Dest",
+        "label": "destination",
+        "name": "MessageStoreViewer_Dest",
+        "plan": "lite",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [
+          "destination",
+          "conn",
+          "connsvc"
+        ],
+        "volume_mounts": []
+      }
+    ],
+    "xsuaa": [
+      {
+        "binding_guid": "1cf5d49f-e432-472c-ae31-d06b797582df",
+        "binding_name": null,
+        "credentials": {
+          "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+          "clientid": "sb-MessageStoreViewer!t121838",
+          "clientsecret": "mKYHbhTHLLDtGUfkPMqY3xl3XcE=",
+          "credential-type": "instance-secret",
+          "identityzone": "whintaws-dev",
+          "identityzoneid": "147c462e-8c8e-4b7d-9b83-794eda7d203a",
+          "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+          "subaccountid": "147c462e-8c8e-4b7d-9b83-794eda7d203a",
+          "tenantid": "147c462e-8c8e-4b7d-9b83-794eda7d203a",
+          "tenantmode": "dedicated",
+          "uaadomain": "authentication.eu10.hana.ondemand.com",
+          "url": "https://whintaws-dev.authentication.eu10.hana.ondemand.com",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAushMA6gtvRI2AuJqn8nrkUcr09mCOwfmCAZf6Y+naO04gmuHDDm7Bg78aEPvdw/ORwT470fe9eqL4F0RSA812iOm/Up43YZb0OvzrEkED8ON4ArIUVSaDnHuTq5igLEMIk5qxOpQqh6VzKJPYOayhjzpME/w8RNoi6i8ajTB1qUqzD5u/gl0ypi+HGTIvj2rHuc1HS3N2Luo5obC1PP5gkf+kaFii4/wGoX02q9I0ShUQ367EPr+X4xLQLH8P8HeTcwJ2esdrgP65/3H90bzP04nz3987necRjK+mSdYUAj/21SnZPDSOMw/4Kbj9YXDtY4ASRzMob+suiDKhs6GEwIDAQAB-----END PUBLIC KEY-----",
+          "xsappname": "MessageStoreViewer!t121838",
+          "zoneid": "147c462e-8c8e-4b7d-9b83-794eda7d203a"
+        },
+        "instance_guid": "5ae361a3-01e4-4151-af63-bd924f2f9482",
+        "instance_name": "MessageStoreViewer_Auth",
+        "label": "xsuaa",
+        "name": "MessageStoreViewer_Auth",
+        "plan": "application",
+        "provider": null,
+        "syslog_drain_url": null,
+        "tags": [
+          "xsuaa"
+        ],
+        "volume_mounts": []
+      }
+    ]
+  }
+}

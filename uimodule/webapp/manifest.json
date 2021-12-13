@@ -1,11 +1,27 @@
 {
   "_version": "1.12.0",
+  "whint.msv": {
+    "destinations": [
+      {
+        "id": "MSV_DEV",
+        "name": "Development"
+      },
+      {
+        "id": "MSV_STG",
+        "name": "Staging"
+      },
+      {
+        "id": "MSV_PROD",
+        "name": "Production"
+      }
+    ]
+  },
   "sap.app": {
     "id": "de.whint.cpi.messageStoreViewer",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
-      "version": "0.0.1"
+      "version": "1.0.0"
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}"
@@ -13,12 +29,12 @@
   "sap.ui": {
     "technology": "UI5",
     "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
+      "icon": "img/favicon.ico",
+      "favIcon": "img/favicon.ico",
+      "phone": "img/logo.jpg",
+      "phone@2": "img/logo.jpg",
+      "tablet": "img/logo.jpg",
+      "tablet@2": "img/logo.jpg"
     },
     "deviceTypes": {
       "desktop": true,
@@ -44,7 +60,7 @@
         "settings": {
           "bundleName": "de.whint.cpi.messageStoreViewer.i18n.i18n"
         }
-      }
+      }     
     },
     "resources": {
       "css": [
@@ -61,32 +77,34 @@
         "viewPath": "de.whint.cpi.messageStoreViewer.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": true
       },
       "routes": [
         {
-          "name": "RouteMainView",
-          "pattern": "RouteMainView",
-          "target": [
-            "TargetMainView"
-          ]
+          "pattern": "",
+          "name": "Main",
+          "target": "main"
+        },
+        {
+          "pattern": "/{destination}/{messageId}",
+          "name": "Details",
+          "target": "details"
         }
       ],
       "targets": {
-        "TargetMainView": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "MainView",
-          "viewName": "MainView"
+        "main": {
+          "viewName": "Main"
+        },
+        "details": {
+          "viewName": "Details"
         }
       }
     },
     "rootView": {
-      "viewName": "de.whint.cpi.messageStoreViewer.view.MainView",
+      "viewName": "de.whint.cpi.messageStoreViewer.view.Main",
       "type": "XML",
       "async": true,
-      "id": "MainView"
+      "id": "app"
     }
   }
 }
