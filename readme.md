@@ -51,13 +51,19 @@ Clone the repository and install the dependencies (this may take some time):
 
 The following configuration files can then be adjusted as needed:
 
-- *uimodule/webapp/manifest.json (destinations)
+- uimodule/webapp/manifest.json (destinations)
 - mta.yaml (route, authentication, connectivity and general parameters)
+
+A detailed description of the MTA Descriptor is available in the official [documentation](https://help.sap.com/viewer/825270ffffe74d9f988a0f0066ad59f0/CF/en-US/26d41dcc35ab4c458c2e3714ec422b80.html).
 
 When you're done, build and deploy your application with
 
     npm run build:mta
     npm run deploy:cf
+
+## Support
+
+Feel free to create an issue on GitHub or contact us directly if you have any questions or problems.
 
 ## Credits
 
