@@ -11,12 +11,12 @@ modules:
       # routes:
       # - route: whint-msv-${space}.cfapps.eu10.hana.ondemand.com
       # host: ${org}-messagestore-viewer
-      host: whint-msv
-      disk-quota: 256M
+      host: whint-msv-${space}
+      disk-quota: 140M
       memory: 128M
     requires:
       - name: MessageStoreViewer_Dest
-      - name: MessageStoreViewer_Auth # authentication (optional), add "authenticationType": "xsuaa" to approuter/xs-app.json > routes
+      - name: MessageStoreViewer_Auth # authentication (optional, adjust 'approuter/xs-app.json' accordingly)
       - name: MessageStoreViewer_Conn # connectivity for on-premise access (optional)
     build-parameters:
       builder: custom
