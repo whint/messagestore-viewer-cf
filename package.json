@@ -1,6 +1,11 @@
 {
   "name": "de.whint.cpi.messagestoreviewer",
   "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "url": "https://github.com/whint/messagestore-viewer-cf"
+  },
+  
   "scripts": {
     "start": "ui5 serve --config=uimodule/ui5.yaml",
     "build:ui": "run-s  build:uimodule",
