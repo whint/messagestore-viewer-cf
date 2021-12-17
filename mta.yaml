@@ -1,0 +1,53 @@
+ID: MessageStoreViewer
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: MessageStoreViewer
+    type: nodejs
+    path: approuter
+    parameters:
+      # routes:
+      # - route: whint-msv-${space}.cfapps.eu10.hana.ondemand.com
+      # host: ${org}-messagestore-viewer
+      host: whint-msv-${space}
+      disk-quota: 140M
+      memory: 128M
+    requires:
+      - name: MessageStoreViewer_Dest
+      - name: MessageStoreViewer_Auth # authentication (optional, adjust 'approuter/xs-app.json' accordingly)
+      - name: MessageStoreViewer_Conn # connectivity for on-premise access (optional)
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:ui --prefix ..
+resources:
+  - name: MessageStoreViewer_Dest
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      config:
+        HTML5Runtime_enabled: true
+        version: 1.0.0
+  - name: MessageStoreViewer_Auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: MessageStoreViewer
+        tenant-mode: dedicated
+        role-collections:
+          - name: "MessageStoreViewer"
+            description: WHINT MessageStore Viewer
+            role-template-references:
+              - $XSAPPNAME.User
+  - name: MessageStoreViewer_Conn
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: connectivity              

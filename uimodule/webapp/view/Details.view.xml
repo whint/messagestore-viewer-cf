@@ -1,0 +1,95 @@
+<mvc:View controllerName="de.whint.cpi.messageStoreViewer.controller.Details" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns:fo="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <App id="app">
+        <pages>
+            <Page title="{i18n>appTitle}">
+                <customHeader>
+                    <f:ShellBar title="{i18n>appTitle}" secondTitle="{i18n>subTitle}" homeIcon="img/logo.jpg" showNavButton="true" navButtonPressed="onNavBack" />
+                </customHeader>
+                <content>
+                    <SplitContainer id="sc" initialDetail="entries" initialMaster="master">
+                        <masterPages>
+                            <Page id="master" title="{i18n>details}">
+                                <fo:SimpleForm class="sapUiTinyMargin">
+                                    <fo:content>
+                                        <Label text="{i18n>messageGuid}" />
+                                        <Text text="{/Details/MessageGuid}" />
+                                        <Label text="{i18n>correlationId}" />
+                                        <Text text="{/Details/CorrelationId}" />
+                                        <Label text="{i18n>flowName}" />
+                                        <Text text="{/Details/IntegrationFlowName}" />
+                                        <Label text="{i18n>status}" />
+                                        <Text text="{/Details/Status}" />
+                                        <Label text="{i18n>logLevel}" />
+                                        <Text text="{/Details/LogLevel}" />
+                                    </fo:content>
+                                </fo:SimpleForm>
+                            </Page>
+                        </masterPages>
+                        <detailPages>
+                            <Page id="entries" title="{i18n>entriesPage}">
+                                <VBox class="sapUiMediumMargin">
+                                    <Table growing="false" items="{/Entries}" itemPress="onEntrySelected">
+                                        <columns>
+                                            <Column>
+                                                <Text text="{i18n>date}" />
+                                            </Column>
+                                            <Column>
+                                                <Text text="{i18n>storeId}" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active" data:id="{Id}">
+                                                <cells>
+                                                    <Label text="{path: 'TimeStamp', formatter: '.formatter.timestamp'}" />
+                                                </cells>
+                                                <cells>
+                                                    <Label text="{MessageStoreId}" />
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </VBox>
+                            </Page>
+                            <Page id="details" title="{i18n>detailsPage}">
+                                <VBox class="sapUiSmallMargin">
+                                    <fo:SimpleForm title="{i18n>payload}">
+                                        <fo:content>
+                                            <TextArea value="{/Payload}" growing="true" showExceededText="true" />
+                                        </fo:content>
+                                    </fo:SimpleForm>
+                                    <fo:SimpleForm title="{i18n>attachments}">
+                                        <fo:content>
+                                            <List items="{path: '/Attachments'}">
+                                                <InputListItem label="{Name}">
+                                                    <Text text="{Value}" />
+                                                </InputListItem>
+                                            </List>
+                                        </fo:content>
+                                    </fo:SimpleForm>
+                                    <fo:SimpleForm title="{i18n>properties}">
+                                        <fo:content>
+                                            <List items="{path: '/Properties'}">
+                                                <InputListItem label="{Name}">
+                                                    <Text text="{Value}" />
+                                                </InputListItem>
+                                            </List>
+                                        </fo:content>
+                                    </fo:SimpleForm>
+                                </VBox>
+                            </Page>
+                        </detailPages>
+                    </SplitContainer>
+                </content>
+                <footer>
+                    <OverflowToolbar design="Info">
+                        <Label text="Made by whitepaper.id GmbH" />
+                        <Label text="/" />
+                        <Link text="Whitepaper InterfaceDesign" href="https://www.whitepaper-id.com" class="whint2" />
+                        <Label text="/" />
+                        <Link text="SAP Integration Excellence" href="https://www.integration-excellence.com" class="whint1"/>
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

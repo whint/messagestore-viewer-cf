@@ -1,0 +1,22 @@
+{
+  "generator-template-ui5-project": {
+    "projectname": "messageStoreViewer",
+    "namespaceUI5": "de.whint.cpi",
+    "platform": "Application Router @ Cloud Foundry",
+    "viewtype": "XML",
+    "ui5libs": "Content delivery network (OpenUI5)",
+    "newdir": false,
+    "codeassist": true,
+    "namespaceURI": "de/whint/cpi",
+    "opa5pos": [
+      "Main"
+    ],
+    "opa5Journeys": [
+      "Main"
+    ],
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

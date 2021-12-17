@@ -1,0 +1,24 @@
+{
+  "welcomeFile": "uimodule/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/uimodule/(.*)$",
+      "target": "$1",
+      "localDir": "uimodule/webapp",
+      "authenticationType": "xsuaa",
+      "scope": "$XSAPPNAME.User"
+    },
+    {
+      "source": "^/dest/([^/]+)/(.*)$",
+      "target": "/$2",
+      "destination": "$1",      
+      "authenticationType": "xsuaa",
+      "scope": "$XSAPPNAME.User",
+      "csrfProtection": false
+    }
+  ]
+}
