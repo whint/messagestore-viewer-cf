@@ -11,7 +11,7 @@
         "name": "Staging"
       },
       {
-        "id": "MSV_PROD",
+        "id": "MSV_PRD",
         "name": "Production"
       }
     ]
