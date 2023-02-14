@@ -8,7 +8,7 @@
           <Bar class="header">
             <contentLeft>
               <Button type="Back" class="bold" press="onNavBack"/>
-              <Image src="img/logo.jpg" height="22px"/>
+              <Image src="img/favicon.png" height="20px"/>
               <Title text="{i18n>appTitle}" class="title"/>
             </contentLeft>
             <contentMiddle>
