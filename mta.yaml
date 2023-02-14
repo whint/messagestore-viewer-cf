@@ -1,6 +1,6 @@
 ID: MessageStoreViewer
 _schema-version: 3.2.0
-version: 1.0.0
+version: 1.0.1
 parameters:
   enable-parallel-deployments: true
 modules:
@@ -12,7 +12,7 @@ modules:
       # - route: whint-msv-${space}.cfapps.eu10.hana.ondemand.com
       # host: ${org}-messagestore-viewer
       host: whint-msv-${space}
-      disk-quota: 140M
+      disk-quota: 256M
       memory: 128M
     requires:
       - name: MessageStoreViewer_Dest
