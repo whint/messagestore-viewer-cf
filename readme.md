@@ -66,11 +66,11 @@ After deployment, the application can be tested locally with the destinations en
     cd approuter
     npm install
 
-then copy the output of `cf env MessageStoreViewer` (node `VCAP_SERVICES` wrapped in `{}`) into `approuter/default-env.json` and run
+then copy the output of `cf env MessageStoreViewer`, node `VCAP_SERVICES` (wrapped in `{...}` to make it valid JSON) into `approuter/default-env.json`. Re-deploying the application may invalidate the environment, repeat if you get an error. Please note that the file contains sensitive data and should be kept in a safe place.
+
+As there is no live-reload feature, the application has to be build and run manually every time the code changes
 
     cd .. && npm run build:mta && cd approuter && npm run start
-
-Repeat the last step every time the code has changed as there is no live-reload feature. Please note that `default-env.json` contains sensitive data and should be kept in a safe place.
 
 ## Support
 

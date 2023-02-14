@@ -11,6 +11,9 @@
 
 .bold {
   font-weight: bold;
+}
+
+span#__button0-iconBtn {
   color: #ffffff !important;
 }
 
