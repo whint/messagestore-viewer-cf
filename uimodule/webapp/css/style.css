@@ -1,19 +1,17 @@
 /* Enter your custom styles here */
-.sapMPageHeader {
+.header {
   background-color: #00519e !important;
+  color: white !important;
 }
 
-.sapMTitle, .sapMBtnIcon {
+.title {
+  font-size: 0.9em;
   color: #ffffff !important;
 }
 
-div#__title1 {
-  font-size: 0.85em;
+.bold {
   font-weight: bold;
-}
-
-div#__title3 {
-  font-size: 0.85em;
+  color: #ffffff !important;
 }
 
 .whint1 {

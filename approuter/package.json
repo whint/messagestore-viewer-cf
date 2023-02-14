@@ -5,7 +5,7 @@
     "node": "16.X"
   },
   "scripts": {
-    "start": "node node_modules/@sap/approuter/approuter.js"
+    "start": "node node_modules/@sap/approuter/approuter.js -p 8080"
   },
   "dependencies": {
     "@sap/approuter": "^14.0.0"

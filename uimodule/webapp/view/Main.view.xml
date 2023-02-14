@@ -4,13 +4,13 @@
     <pages>
       <Page title="{i18n>appTitle}">
         <customHeader>
-          <Bar>
+          <Bar class="header">
             <contentLeft>
               <Image src="img/logo.jpg" height="22px"/>
-              <Title text="{i18n>appTitle}"/>
+              <Title text="{i18n>appTitle}" class="title bold"/>
             </contentLeft>
             <contentMiddle>
-              <Title text="{i18n>subTitle}"/>
+              <Title text="{i18n>subTitle}" class="title"/>
             </contentMiddle>
           </Bar>
         </customHeader>

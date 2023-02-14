@@ -44,7 +44,7 @@ Congratulations, the WHINT MessageStore Viewer is now ready!
 
 For advanced configuration e.g. of the route, authentication or destinations, you can deploy a locally build version of the WHINT MessageStore Viewer. The only prerequisite is that you have a recent version of [Node.js](https://nodejs.org/en/download/) installed.
 
-Clone the repository and install the dependencies (this may take some time):
+Clone the repository and install the dependencies (this may take some time)
 
     git clone https://github.com/whint/messagestore-viewer-cf
     npm install
@@ -60,6 +60,17 @@ When you're done, build and deploy your application with
 
     npm run build:mta
     npm run deploy:cf
+
+After deployment, the application can be tested locally with the destinations enabled through the App Router. Install the dependencies once
+  
+    cd approuter
+    npm install
+
+then copy the output of `cf env MessageStoreViewer` (node `VCAP_SERVICES` wrapped in `{}`) into `approuter/default-env.json` and run
+
+    cd .. && npm run build:mta && cd approuter && npm run start
+
+Repeat the last step every time the code has changed as there is no live-reload feature. Please note that `default-env.json` contains sensitive data and should be kept in a safe place.
 
 ## Support
 

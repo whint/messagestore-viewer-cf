@@ -66,7 +66,7 @@ sap.ui.define(
           this.waitFor(async () => {
 
             await this.fetch({
-              url: `/dest/${data.SelectedDestination}/MessageProcessingLogs?$format=json&$filter=${filter.join(" and ")}`,
+              url: `/dest/${data.SelectedDestination}/MessageProcessingLogs?$format=json&$filter=${filter.join(" and ")}&$orderby=LogStart%20desc`,
               onJSON: (json) => {
                 data.Messages = json.d.results;
               },

@@ -5,14 +5,14 @@
     <pages>
       <Page title="{i18n>appTitle}">
         <customHeader>
-          <Bar>
+          <Bar class="header">
             <contentLeft>
-              <Button type="Back" press="onNavBack" />
+              <Button type="Back" class="bold" press="onNavBack"/>
               <Image src="img/logo.jpg" height="22px"/>
-              <Title text="{i18n>appTitle}"/>
+              <Title text="{i18n>appTitle}" class="title"/>
             </contentLeft>
             <contentMiddle>
-              <Title text="{i18n>subTitle}"/>
+              <Title text="{i18n>subTitle}" class="title bold"/>
             </contentMiddle>
           </Bar>
         </customHeader>
@@ -63,7 +63,15 @@
               </Page>
               <Page id="details" title="{i18n>detailsPage}">
                 <VBox class="sapUiSmallMargin">
-                  <fo:SimpleForm title="{i18n>payload}">
+                  <fo:SimpleForm>
+                    <fo:toolbar>
+                      <Toolbar>
+                        <Title text="{i18n>payload}"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://display" text="Display" press="onDisplayPayload"/>
+                        <Button icon="sap-icon://download" text="Download" press="onDownloadPayload"/>
+                      </Toolbar>
+                    </fo:toolbar>
                     <fo:content>
                       <TextArea value="{/Payload}" growing="true" showExceededText="true"/>
                     </fo:content>

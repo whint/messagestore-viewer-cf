@@ -45,14 +45,22 @@ sap.ui.define(
 
             await this.fetch({
               url: `${data.Destination}/MessageProcessingLogs('${id}')?$format=json`,
-              onJSON: (json) => { data.Details = json.d },
-              onError: () => { data.Details = {} }
+              onJSON: (json) => {
+                data.Details = json.d
+              },
+              onError: () => {
+                data.Details = {}
+              }
             });
 
             await this.fetch({
               url: `${data.Destination}/MessageProcessingLogs('${id}')/MessageStoreEntries?$format=json`,
-              onJSON: (json) => { data.Entries = json.d.results },
-              onError: () => { data.Entries = {} }
+              onJSON: (json) => {
+                data.Entries = json.d.results
+              },
+              onError: () => {
+                data.Entries = {}
+              }
             });
 
             model.refresh();
@@ -61,33 +69,55 @@ sap.ui.define(
 
         async onEntrySelected(oEvent) {
 
-          const id = oEvent.getParameter("listItem").getCustomData()[0].getValue();
           const model = this.getModel();
           const data = model.getData();
+          data.Id = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 
           this.waitFor(async () => {
 
             await this.fetch({
-              url: `${data.Destination}/MessageStoreEntries('${id}')/$value`,
-              onText: (text) => { data.Payload = text },
-              onError: () => { data.payload = "" }
-            });
-
-            await this.fetch({
-              url: `${data.Destination}/MessageStoreEntries('${id}')/Attachments?$format=json`,
+              url: `${data.Destination}/MessageStoreEntries('${data.Id}')/Attachments?$format=json`,
               onJSON: (res) => (data.Attachments = res.d.results),
-              onError: () => { data.Attachments = [] }
+              onError: () => {
+                data.Attachments = []
+              }
             });
 
             await this.fetch({
-              url: `${data.Destination}/MessageStoreEntries('${id}')/Properties?$format=json`,
+              url: `${data.Destination}/MessageStoreEntries('${data.Id}')/Properties?$format=json`,
               onJSON: (res) => (data.Properties = res.d.results),
-              onError: () => { data.Properties = {} }
+              onError: () => {
+                data.Properties = {}
+              }
             });
 
             model.refresh();
             this.byId("sc").to(this.byId("details"), "fade");
           });
+        },
+
+        async onDisplayPayload(oEvent) {
+
+          const model = this.getModel();
+          const data = model.getData();
+
+          this.waitFor(async () => {
+            await this.fetch({
+              url: `${data.Destination}/MessageStoreEntries('${data.Id}')/$value`,
+              onText: (text) => {
+                data.Payload = text
+              },
+              onError: () => {
+                data.Payload = ""
+              }
+            });
+            model.refresh();
+          })
+        },
+
+        async onDownloadPayload(oEvent) {
+          const data = this.getModel().getData();
+          window.open(`${data.Destination}/MessageStoreEntries('${data.Id}')/$value`);
         },
 
         onNavBack: function (oEvent) {
@@ -102,7 +132,7 @@ sap.ui.define(
               this.byId("sc").to(this.byId("entries"));
               break;
           }
-        },        
+        },
       }
     );
   }
