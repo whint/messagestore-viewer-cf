@@ -1,6 +1,19 @@
 /* Enter your custom styles here */
-.sapFShellBar {
+.sapMPageHeader {
   background-color: #00519e !important;
+}
+
+.sapMTitle, .sapMBtnIcon {
+  color: #ffffff !important;
+}
+
+div#__title1 {
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+div#__title3 {
+  font-size: 0.85em;
 }
 
 .whint1 {
