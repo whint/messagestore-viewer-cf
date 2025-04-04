@@ -61,6 +61,10 @@ When you're done, build and deploy your application with
     npm run build:mta
     npm run deploy:cf
 
+If you face `cf deploy is not a registered command` error then run this command first
+
+    cf install-plugin multiapps
+
 After deployment, the application can be tested locally with the destinations enabled through the App Router. Install the dependencies once
   
     cd approuter
